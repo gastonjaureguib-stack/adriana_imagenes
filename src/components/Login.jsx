@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import { supabase } from '../lib/supabaseClient'
-import { Lock } from 'lucide-react'
+import { Lock, Eye, EyeOff } from 'lucide-react'
 
 export default function Login({ onLogin }) {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [mostrarPassword, setMostrarPassword] = useState(false)
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(false)
 
@@ -122,24 +123,50 @@ export default function Login({ onLogin }) {
             <label style={{ display: 'block', fontSize: '12px', fontWeight: 'bold', color: '#94a3b8', marginBottom: '6px' }}>
               CONTRASEÑA
             </label>
-            <input
-              type="password"
-              placeholder="••••••••"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              style={{
-                width: '100%',
-                padding: '12px',
-                borderRadius: '8px',
-                border: '1px solid #334155',
-                backgroundColor: '#0f172a',
-                color: 'white',
-                outline: 'none',
-                fontSize: '15px',
-                boxSizing: 'border-box'
-              }}
-            />
+            <div style={{ position: 'relative' }}>
+              <input
+                type={mostrarPassword ? 'text' : 'password'}
+                placeholder="••••••••"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                style={{
+                  width: '100%',
+                  padding: '12px 42px 12px 12px',
+                  borderRadius: '8px',
+                  border: '1px solid #334155',
+                  backgroundColor: '#0f172a',
+                  color: 'white',
+                  outline: 'none',
+                  fontSize: '15px',
+                  boxSizing: 'border-box'
+                }}
+              />
+
+              <button
+                type="button"
+                onClick={() => setMostrarPassword(!mostrarPassword)}
+                style={{
+                  position: 'absolute',
+                  right: '10px',
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  padding: '4px'
+                }}
+              >
+                {mostrarPassword ? (
+                  <EyeOff size={18} color="var(--accent-yellow)" />
+                ) : (
+                  <Eye size={18} color="#94a3b8" />
+                )}
+              </button>
+            </div>
           </div>
 
           <button 
