@@ -1,0 +1,70 @@
+:root {
+  --primary-blue: #0f172a;
+  --secondary-blue: #1e3a8a;
+  --accent-yellow: #f59e0b;
+  --hover-yellow: #d97706;
+  --card-bg: #1e293b;
+  --card-content-bg: #0f172a;
+  --text-light: #f8fafc;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+html, body, #root {
+  min-height: 100vh;
+  background-color: var(--primary-blue);
+  color: var(--text-light);
+}
+
+/* Botones principales */
+.btn-primary {
+  background-color: var(--accent-yellow);
+  color: var(--primary-blue);
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--hover-yellow);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border: 2px solid var(--accent-yellow);
+  color: var(--accent-yellow);
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background-color: var(--accent-yellow);
+  color: var(--primary-blue);
+}
+
+.btn-danger {
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
